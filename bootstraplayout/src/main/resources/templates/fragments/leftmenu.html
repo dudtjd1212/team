@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="leftmenuFragment">
+ 	<!-- partial:partials/_sidebar.html -->
+	<nav class="sidebar sidebar-offcanvas" id="sidebar">
+		<ul class="nav">
+			<li class="nav-item">
+				<a class="nav-link" href="/addMember">
+					<i class="mdi mdi-account-plus menu-icon"></i><span class="menu-title">회원가입</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
+					<i class="mdi mdi-account-multiple menu-icon"></i> 
+					<span class="menu-title">회원관리</span> <i class="menu-arrow"></i>
+				</a>
+				<div class="collapse" id="ui-basic1">
+					<ul class="nav flex-column sub-menu">
+						<li class="nav-item">
+							<a class="nav-link" href="/memberList">회원전체목록</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/mSearchList">회원검색</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
+					<i class="mdi mdi-package-variant menu-icon"></i> 
+					<span class="menu-title">상품관리</span> <i class="menu-arrow"></i>
+				</a>
+				<div class="collapse" id="ui-basic2">
+					<ul class="nav flex-column sub-menu">
+						<li class="nav-item">
+							<a class="nav-link" href="pages/ui-features/buttons.html">상품등록</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="pages/ui-features/typography.html">상품검색</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+			
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth"> 
+					<i class="mdi mdi-account menu-icon"></i> 
+					<span class="menu-title">User Pages</span> 
+					<i class="menu-arrow"></i>
+				</a>
+				<div class="collapse" id="auth">
+					<ul class="nav flex-column sub-menu">
+						<li class="nav-item">
+							<a class="nav-link" href="pages/samples/login.html"> Login </a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="pages/samples/register.html"> Register </a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</nav>
+</th:block>>
+</html>

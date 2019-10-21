@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customTitle">
+	<title>회원목록</title>
+</th:block>
+<th:block layout:fragment="customContents">
+	<!-- 검색 -->
+	<form action="/mSearchList" method="post">
+		<select name="sk">
+			<option value="m_id">회원아이디</option>
+			<option value="m_name">회원명</option>
+		</select>
+		<input type="text" name="sv">
+		<button type="submit">검색</button>
+	</form>
+</html>

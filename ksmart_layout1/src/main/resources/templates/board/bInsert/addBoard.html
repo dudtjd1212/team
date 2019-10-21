@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+
+<th:block layout:fragment="customTitle">
+	<title>ksmart 게시판 입력</title>
+</th:block>
+<th:block layout:fragment="customContents">
+	<form action="/addBoard" method="post">
+		<table border="1">
+			<tr>
+				<td>글제목</td>
+				<td>
+					<input type="text" name="boardTitle">
+				</td>
+			</tr>
+			<tr>
+				<td>글내용</td>
+				<td>
+					<textarea rows="5" cols="22" name="boardContent"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>글쓴이</td>
+				<td>
+					<input type="text" th:value="${session.SNAME}" readonly="readonly">
+					<input type="hidden" name="boardUser" 
+						th:value="${session.SID}">
+				</td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td>
+					<input type="text" name="boardPw">
+				</td>
+			</tr>
+			<tr style="text-align: center;">
+				<td colspan="2">
+					<button type="submit">글입력</button>
+				</td>
+			</tr>
+		</table>
+		
+	</form>
+</th:block>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<th:block layout:fragment="customTitle">
+</th:block>
+<th:block layout:fragment="customContents">
+	<!-- MAIN -->
+		<div class="main-height">
+			<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<p class="text-white mt-5 mb-5">
+								진행 프로젝트 // 스마트 모빌리티 판매/대여 업체를 전문으로한 ERP
+								<br>
+								매장의 전반적인 관리를 문서화 하지 않고 데이터화 시켜 관리하게 쉽고 효과적인 매장 관리를 위해 매입, 매출, 재고, 직원 관리 등을 제공할수있는 프로그램
+							</p>
+							
+							<p class="text-white mt-5 mb-5">
+								<b th:if="${session.SLEVEL eq '관리자'}">관리자로 로그인중</b>
+								<b th:if="${session.SLEVEL eq '점주'}">점주로 로그인중</b>
+								<b th:if="${session.SLEVEL eq '직원'}">직원으로 로그인중</b>
+							</p>
+							
+						</div>
+						
+					</div>								
+					<th:block th:if="${session.SLEVEL eq '점주'}">
+					<!-- 순수익 차트 -->
+					<div class="row tm-content-row">
+						<div class="col-12 tm-block-col">
+							<div class="tm-bg-primary-dark tm-block-util">
+									<span style="display: inline-block; float: left"> 
+										<strong class="tm-block-title">보고서 </strong>
+									</span> 
+									<span style="display: inline-block; float: right"> 
+										<select
+											style="width: 100px;" 
+											class="custom-select" 
+											name="netYear"
+											id="netYear"
+											><option value="2019" id="2019">2019</option>
+										</select>
+									</span>
+	
+								<!-- charts.js -->
+								
+									<canvas id="netChart" height="100px;"></canvas>
+								
+							</div>
+						</div>
+					</div>
+					</th:block>
+		
+		
+		
+					<div class="row tm-content-row">
+					<strong class="tm-block-title">
+						초급 개발자 문영성</strong>
+						<h6 style="color: white;">moon.young.seong <br>wltjtm@naver.com<br>dudtjd1212@daum.com</h6>					
+								
+						<div class="col-12 tm-block-col">						
+						<div class="text-white mt-6 mb-6"> git 주소https:/github.com/guno923/smartrider.git
+						</div>
+						<img src="resources/img/mys.png" width="180" height="210" class="tm-block-title" style="float: left;">
+						<img src="resources/img/ecu.PNG" width="180" height="210" class="tm-block-title" style="float: right;">	
+							<div class="tm-bg-primary-dark tm-block-mys">	
+																										
+								<p class="text-white mt-6 mb-6">
+																				
+									<b>	보유기술<br>
+										▶Language : java, javascript(jquery), HTML, CSS, <br>
+										▶DB : mysql, mariadb <br>
+										▶DB관리툴 : HeidiSQL <br>
+										▶WAS : apache-tomcat <br>
+										▶협업툴 : GitHub<br>
+										▶프레임워크 : eclipse 4.7.1, STS 4.3.1, springframework 5.1.9, spring-webmvc 5.1.9, Maven, mybatis 3.5.2, mybatis-spring 2.0.2, bootstrap, thymeleaf, ajax
+										API : jackson.core 2.9.9, spring-jdbc 5.1.9, mysql-connector-java 8.0.17 , maven-compiler-plugin 3.6, log4j 1.2.15
+									</b>									
+								</p>
+															
+							</div>
+							<br>
+							<div class="tm-bg-primary-dark tm-block-mys">	
+																										
+								<p class="text-white mt-6 mb-6">
+																				
+									<b >간략 소개<br>
+										프로그래밍을 시작한지는 얼마 안되었지만 교육 과정 중 프로젝트를 통하여 경험을 쌓아왔으며 평상시에 프로그래밍에 흥미를 가지고 살아왔었습니다,<br>
+										 새로운 기술을 열정적으로 받아들였고 프로젝트 진행시 습득한 기술을을 잘 활용하여 좋은 결과물이 나왔습니다 <br>										
+										또한 여러가지의 일 을 경험하여 업무적인 프로세스도 금방 이해할 수 있습니다.<br> 										
+									</b>									
+								</p>
+							
+							</div>
+						</div>
+					</div>
+					
+					
+						
+					<div class="row tm-content-row">
+						<div class="col-12 tm-block-col">
+						<strong class="tm-block-title"> 프로젝트  시스템 구조도</strong>
+							<div class="tm-bg-primary-dark tm-block-mys">
+							<img src="resources/img/prosess.jpg" width="1120" height="600"
+							 class="tm-block-title" style="float: none;">													
+								<p class="text-white mt-5 mb-5">
+									<b> - 담당업무  </b>
+									<br>
+									<b> - 기본상품정보등록 : 관리자일때만 가능 일반 점주들은 접근하여 검색 매입등록가능 </b>
+									<br>
+									<b> - 매입,재고   : 기본상품정보를 통해 매입등록,삭제,조회 가능 하고 현재상품상태로 재고상태확인가능 </b>
+									<br>
+									<b> - 판매,대여 : 매입품목으로 등록,수정,삭제,조회 가능하고 매출입력가능 매출입력시 현상품상태 변환</b>
+									<br>
+									<b> - 매출	 : 판매,대여 매출등록한 금액 조회,삭제,검색 가능하며 월별로 그래프현황 나타냄  
+													로그인시 관리자가아닐경우 해당매장만 나타남</b>
+									<br>
+									<b> - 로그인할때 관리자가아닐시 로그인점주 매장별로만 보여지게 되어있고 관리자일때만 전체매장 확인가능합니다</b>
+									<br>
+									<b> ※ 매출항목은 그래프로 현황를 보여줍니다 ※</b>
+								</p>
+									
+							</div>
+						</div>
+					</div>
+					
+					
+					
+				</div>
+			</div>
+		</div>
+
+</th:block>
+</th:block>
+<th:block layout:fragment="customScript">
+
+<script th:inline="javascript">
+	
+	var level = [[${session.SLEVEL}]]
+	
+	if(level == '점주'){
+		$(function() {
+			var ctx = document.getElementById('netChart').getContext('2d');
+			var netChart = new Chart(ctx, {
+				
+			    // The type of chart we want to create
+			    type: 'bar',
+			
+			    // The data for our dataset
+			    data: {
+			        labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월','8월','9월','10월','11월','12월'],
+			        datasets: [{
+						label: '순수익',
+						type : 'bar',
+						backgroundColor: 'rgb(255, 204, 102)',
+			            borderColor: 'rgb(255, 204, 102)',
+						data: [
+							 [[${netPay0}]], [[${netPay1}]], [[${netPay2}]], [[${netPay3}]], [[${netPay4}]]
+							,[[${netPay5}]], [[${netPay6}]], [[${netPay7}]], [[${netPay8}]], [[${netPay9}]]
+							,[[${netPay10}]], [[${netPay11}]]
+						]
+					}, {
+						label: '지출',
+						type : 'line',
+						fill : false,
+						lineTension : 0.2,
+						pointRadius : 0,
+						backgroundColor: 'rgb(255, 153, 0)',
+			            borderColor: 'rgb(255, 153, 0)',
+						data: [
+							 [[${spend0}]], [[${spend1}]], [[${spend2}]], [[${spend3}]], [[${spend4}]]
+							,[[${spend5}]], [[${spend6}]], [[${spend7}]], [[${spend8}]], [[${spend9}]]
+							,[[${spend10}]], [[${spend11}]]
+						]
+					}, {
+						label: '매출',
+						type : 'line',
+						fill : false,
+						lineTension : 0.2,
+						pointRadius : 0,
+						backgroundColor: 'rgb(255, 204, 0)',
+			            borderColor: 'rgb(255, 204, 0)',
+						data: [
+							 [[${sales0}]], [[${sales1}]], [[${sales2}]], [[${sales3}]], [[${sales4}]]
+							,[[${sales5}]], [[${sales6}]], [[${sales7}]], [[${sales8}]], [[${sales9}]]
+							,[[${sales10}]], [[${sales11}]]
+						]
+					}]
+			    },
+			
+			    // Configuration options
+			    options: {
+			    	legend: {
+			             labels: {
+			                  fontColor: 'white' // label color
+			                 }
+			              },
+				    scales: {
+				    	// y축
+				        yAxes: [{
+				        	stacked: true,
+				            ticks: {
+				                fontColor:'white' // y축 폰트 color
+				            }
+				     	}],
+				     	// x축
+				     	xAxes: [{
+				     		stacked: true,
+				            ticks: {
+				                fontColor:'white' // x축 폰트 color
+				            }
+				     	}]
+				    }
+			    }
+			});
+		})
+	}
+	
+</script>
+
+</th:block>
+</html>
